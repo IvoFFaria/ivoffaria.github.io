@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Site Acessível Ivo Faria</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e3e3e3; 
+            color: #333333;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #397c48; 
+            color: #ffffff;
+            padding: 20px;
+            position: relative;
+            border-bottom: 10px solid #397c48; 
+            height: 150px;
+        }
+
+        .header-content h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1f8134;
+            padding: 12px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 20px;
+            display: inline-block;
+            font-size: 1.2em;
+        }
+
+        nav a:focus, nav a:hover {
+            background-color: #3498db; 
+            border-radius: 5px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #1f8134; 
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        button:focus {
+            outline: 3px solid #1f8134;
+        }
+
+        input, select {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: 2px solid #cccccc;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .carousel-button-prev {
+            left: 10px;
+        }
+
+        .carousel-button-next {
+            right: 10px;
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        .artists-section {
+            background-color: #ecf0f1;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .artists-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .artist-card {
+            background-color: white;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        .artist-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .hobbies-section ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .hobbies-section li {
+            padding: 8px 0;
+        }
+
+        .pet-section {
+            background-color: #ecf0f1;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .pet-section h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .pet-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .pet-images img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 5px solid #3498db;
+        }
+
+        a:focus, button:focus, input:focus, select:focus {
+            outline: 3px solid #ff6347;
+            background-color: #ffeb3b; 
+        }
+
+        .spotify-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1DB954;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .spotify-button:hover {
+            background-color: #1ed760; 
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); 
+            transform: scale(1.05); 
+        }
+
+        .spotify-button:active {
+            transform: scale(0.95); 
+         }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Quem sou eu?</h1>
+    </div>
+</header>
+
+<nav>
+    <a href="#home" title="Ir para Início">Início</a>
+    <a href="#hobbies" title="Ir para Hobbies">Hobbies</a>
+    <a href="#videos" title="Ir para Videos">Videos</a>
+    <a href="#artistas" title="Ir para Artistas">Artistas</a>
+    <a href="#contact" title="Ir para Contatos">Contatos</a>
+</nav>
+
+
+<main>
+
+    <section id="home" class="card">
+        <h2>Início</h2>
+        <p>Olá, o meu nome é Ivo e tenho 26 anos. Sou apaixonado por diversos hobbies que me ajudam a crescer como pessoa. Gosto de jogar videojogos para me divertir. Além disso, Faço Streams na Twitch.</p>
+        <p>Este Site foi criado para partilhar um pouco sobre mim e as minhas paixões, como o meu gosto pela comunidade gaming, pela música e pelas Streams.</p>
+    
+        <div class="image-container" style="display: flex; justify-content: center; gap: 20px;">
+            <img src="foto1.png" alt="Foto de Ivo" title="Foto de Ivo, um jovem de 26 anos." style="width: 200px; height: 200px; border: 5px solid #3498db; border-radius: 12px; object-fit: cover;">
+            <img src="foto2.png" alt="Foto de Ivo no carro" title="Foto de Ivo, num momento inesperado." style="width: 200px; height: 200px; border: 5px solid #3498db; border-radius: 12px; object-fit: cover;">
+            <img src="foto3.png" alt="Foto de Ivo com a Filha" title="Foto de Ivo com a sua Filha " style="width: 200px; height: 200px; border: 5px solid #3498db; border-radius: 12px; object-fit: cover;">
+        </div>
+    </section>
+    
+
+    <section id="hobbies" class="card hobbies-section">
+        <h2>Hobbies</h2>
+        <ul>
+            <li><strong>Gaming:</strong> Jogar videojogos é uma forma divertida de relaxar e também de me desafiar mentalmente, além de ser uma ótima maneira de socializar com amigos.</li>
+            <li><strong>Música:</strong> Ouvir música é uma atividade que proporciona prazer e ajuda no desenvolvimento pessoal e emocional.</li>
+        </ul>
+    </section>
+
+    <section id="videos" class="card">
+        <h2>Alguns momentos captados por fãs</h2>
+        <div class="carousel">
+            <button class="carousel-button carousel-button-prev" aria-label="Imagem anterior" onclick="prevSlide()">&#10094;</button>
+            <div class="carousel-images">
+                <iframe src="https://clips.twitch.tv/embed?clip=TrappedLaconicPterodactylCmonBruh-UmZxvGD03k1cKfZO&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620" alt="Clipe de Ivo num Jogo de Terror" title="Clipe de Ivo num Jogo de Terror"></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=ManlyMushyMomCclamChamp-bujVre5xTOMP74T-&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620" alt="Clipe de Ivo num Jogo de Roleplay GTA V" title="Clipe de Ivo num Jogo de Roleplay GTA V"></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=KindTangentialRatBlargNaut-Pmls1yAMYJmEOJla&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620"alt="Clipe de Ivo num Jogo de Cenário de Guerra" title="Clipe de Ivo num Jogo de Cenário de Guerra"></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=AdorableRoundEggplantGingerPower-o0P6Mzaokr4y1dKs&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620"alt="Clipe de Ivo num Jogo de Roleplay GTA V" title="Clipe de Ivo num Jogo de Roleplay GTA V"></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=PoorAmazonianDelicataWOOP-gJO0JkHCkJDWEoOF&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620"alt="Clipe de Ivo num Jogo de Roleplay GTA V" title="Clipe de Ivo num Jogo de Roleplay GTA V"></iframe>
+                <iframe src="https://clips.twitch.tv/embed?clip=CourteousSmoggyCakePeteZarollTie-N07wGWzzOn9W3-to&parent=localhost" frameborder="5" allowfullscreen="true" scrolling="no" height="378" width="620"alt="Clipe de Ivo num Jogo de Terror" title="Clipe de Ivo num Jogo de Terror"></iframe>
+            </div>
+            <button class="carousel-button carousel-button-next" aria-label="Imagem seguinte" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <h3 style="text-align: center;">Veja o vídeo que deu inicio a Tudo!</h3>
+        <div class="video-container" style="text-align: center; margin-top: 20px;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Zb0m15RfqBQ?si=VSDuI0-lrs9k9Z_Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+            
+        </div>
+    </section>
+
+    <section id="artistas" class="artists-section">
+        <h2>Artistas Mais Ouvidos</h2>
+        <div class="artists-list">
+            <div class="artist-card">
+                <img src="the-offspring.jpg" alt="Foto dos artistas The Offspring" title="The Offspring, banda de punk rock norte-americana, referência do skate punk e do rock alternativo" />
+                <h3>The Offspring</h3>
+                <a href="https://open.spotify.com/intl-pt/artist/5LfGQac0EIXyAN8aUwmNAQ?si=m3Y7WESrQNOzB1MbnXIJTQ" target="_blank" class="spotify-button">Ouvir no Spotify</a>
+            </div>
+            <div class="artist-card">
+                <img src="Myles-Smith.jpg" alt="Foto do artista Myles Smith" title="Myles Smith, cantor e compositor norte-americano, conhecido pela sua versatilidade vocal e influência no R&B contemporâneo" />
+                <h3>Myles Smith</h3>
+                <a href="https://open.spotify.com/intl-pt/artist/3bO19AOone0ubCsfDXDtYt?si=SOSc8gnDQBekD9K3FPl5dA" target="_blank" class="spotify-button">Ouvir no Spotify</a>
+            </div>
+            <div class="artist-card">
+                <img src="Alexander-Rybak.jpeg" alt="Foto do artista Alexander Rybak" title="Alexander Rybak, violinista, cantor e compositor norueguês, vencedor do Festival Eurovisão da Canção 2009" />
+                <h3>Alexander Rybak</h3>
+                <a href="https://open.spotify.com/intl-pt/artist/3LLNDXrxL4uxXtnUJS5XWM?si=rIOP4DuQTHKisShgPnEpww" target="_blank" class="spotify-button">Ouvir no Spotify</a>
+            </div>
+            <div class="artist-card">
+                <img src="dirty-heads.jpg" alt="Foto dos artistas Dirty Heads" title="Dirty Heads, banda norte-americana de reggae rock, conhecida pela fusão de hip-hop, rock e música alternativa" />
+                <h3>Dirty Heads</h3>
+                <a href="https://open.spotify.com/intl-pt/artist/6GkJh85o22LfD2vgL9DP6f?si=opDF8QR5Q9yruEu9f6nszw" target="_blank" class="spotify-button">Ouvir no Spotify</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contatos Pessoais</h2>
+        <div class="contact-info">
+            <span>E-mail:</span> ivo1998@live.com.pt
+        </div>
+        <div class="contact-info">
+            <span>Telefone:</span> 939270784
+        </div>
+        <div class="contact-info">
+            <span>Instagram:</span> @ivofaria23
+        </div>
+    </section>
+    
+   
+</main>
+
+<footer>
+    
+    <b>&copy; <span id="year"></span> Ivo Faria | Todos os direitos reservados.<br></b>
+    <img src="Logo-IEFP-Vertical-5.png" alt="Imagem no Rodapé" title="Logo do IEFP" style="max-width: 200px; height: auto; margin-top: 10px;">
+    <img src="logosapoios.jpg" alt="Imagem no Rodapé" title="Logo dos apoios" style="max-width: 500px; height: auto; margin-top: 10px;">
+</footer>
+
+
+<script>
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-images img');
+    const totalSlides = slides.length;
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+        } else {
+            currentSlide = 0;
+        }
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+        } else {
+            currentSlide = totalSlides - 1;
+        }
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const carousel = document.querySelector('.carousel-images');
+        const offset = -currentSlide * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+</script>
+
+</body>
+</html>
